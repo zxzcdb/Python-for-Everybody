@@ -42,5 +42,5 @@ print(result)
 #368286
 
 # Easier method
-# print(sum(int(i) for i in re.findall('[0-9]+',urllib.request.urlopen('http://python-data.dr-chuck.net/regex_sum_245924.txt').read()))
-# print(sum(int(i) for i in re.findall('[0-9]+',open('C:/Users/te121877/regex_sum_245924.txt',encoding='utf-8').read()))
+# print(sum(int(i) for i in re.findall('[0-9]+',urllib.request.urlopen('http://python-data.dr-chuck.net/regex_sum_245924.txt').read())))
+print(sum(int(i) for i in re.findall('[0-9]+',open('C:/Users/te121877/regex_sum_245924.txt',encoding='utf-8').read())))
