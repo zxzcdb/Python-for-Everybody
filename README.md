@@ -1,1 +1,1 @@
-# python_for_everyone.
+# Python for everyone.
