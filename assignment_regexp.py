@@ -30,7 +30,7 @@ import urllib.request
 # Open data file
 url = 'http://python-data.dr-chuck.net/regex_sum_245924.txt'
 txt = urllib.request.urlopen(url)
-cont = txt.read()
+cont = txt.read().decode(encoding='utf-8')
 # txt = open('C:/Users/te121877/regex_sum_245924.txt',encoding='utf-8')
 # cont = txt.read()
 # cont
