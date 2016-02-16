@@ -32,8 +32,19 @@
 
 # The basic outline of this problem is to read the file, look for integers using the re.findall(), looking for a regular expression of '[0-9]+' and then converting the extracted strings to integers and summing up the integers. 
 
+# Import packages
 import re
-import urlib2
+import urllib.request
 
-txt = urllib2.urlopen('http://python-data.dr-chuck.net/regex_sum_245924.txt')
+# Open data file
+url = 'http://python-data.dr-chuck.net/regex_sum_245924.txt'
+txt = urllib.request.urlopen(url)
+cont = txt.read()
+# txt = open('C:/Users/te121877/regex_sum_245924.txt',encoding='utf-8')
+# cont = txt.read()
+# cont
 
+#Execute
+num = re.findall('[0-9]+',cont)
+sum(int(i) for i in num)
+#368286
