@@ -19,6 +19,7 @@ mysocket.send('http://www.pythonlearn.com/code/intro-short.txt HTTPS/1.0\n\n')
 
 while True:
   data = mysocket.recv(512)
+  data2 = data.decode('utf-8')
   if ( len(data) < 1 ):
       break
   print (data)
