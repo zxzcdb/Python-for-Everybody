@@ -13,14 +13,26 @@
 #     Use the telnet program as shown in lecture to retrieve the headers and content.
 
 import socket
+
 mysocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
 mysocket.connect(('www.pythonlearn.com',80))
-mysocket.send('http://www.pythonlearn.com/code/intro-short.txt HTTPS/1.0\n\n')
+mysocket.send(b'GET http://www.pythonlearn.com/code/intro-short HTTP/1.0\n\n')
 
 while True:
-  data = mysocket.recv(512)
-  data2 = data.decode('utf-8')
-  if ( len(data) < 1 ):
+    txt = mysocket.recv(99999)
+    if ( len(txt) < 1 ):
       break
-  print (data)
+    print (txt)
 mysocket.close()
+
+# HTTP/1.1 200 OK
+# Date: Sat, 20 Feb 2016 13:03:17 GMT
+# Server: Apache
+# Content-Location: intro-short.txt
+# Vary: negotiate
+# TCN: choice
+# Last-Modified: Mon, 12 Oct 2015 14:55:29 GMT
+# ETag: "20f7401b-1d3-521e9853a392b;52c32f8beef53"
+# Accept-Ranges: bytes
+# Content-Length: 467
+# Cache-Control: max-age=604800, public
