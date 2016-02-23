@@ -45,3 +45,5 @@ for tag in soup.find_all('span'):
     result = result + int(tag.contents[0])
 #    print("Now it is:", result)
 print("Sum is: ", result)
+
+# 
