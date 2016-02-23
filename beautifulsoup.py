@@ -30,3 +30,18 @@
 # Enter - http://python-data.dr-chuck.net/comments_42.html
 # Count 50
 # Sum 2482
+
+import urllib
+from bs4 import BeautifulSoup
+
+url = input('Enter - ')
+html = urllib.request.urlopen(url).read()
+
+# Retrieve all of the anchor tags
+soup = BeautifulSoup(html)
+result = 0
+for tag in soup.find_all('span'):
+#    print(tag.contents[0])
+    result = result + int(tag.contents[0])
+#    print("Now it is:", result)
+print("Sum is: ", result)
