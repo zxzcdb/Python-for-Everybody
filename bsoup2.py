@@ -28,3 +28,16 @@
 # Retrieving: http://python-data.dr-chuck.net/known_by_Butchi.html
 # Retrieving: http://python-data.dr-chuck.net/known_by_Anayah.html
 # The answer to the assignment for this execution is "Anayah".
+
+import urllib.request
+from bs4 import BeautifulSoup
+
+url = input('Enter - ')
+url = 'http://python-data.dr-chuck.net/known_by_Fikret.html'
+
+for i in range(4):
+    html = urllib.request.urlopen(url).read()
+    soup = BeautifulSoup(html)
+    tags = soup('a')
+    html = tags[2].get('href')
+print(html)
