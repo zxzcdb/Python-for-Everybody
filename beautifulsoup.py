@@ -34,7 +34,7 @@
 import urllib
 from bs4 import BeautifulSoup
 
-url = input('Enter - ')
+url = input('Enter - ') # http://python-data.dr-chuck.net/comments_245929.html
 html = urllib.request.urlopen(url).read()
 
 # Retrieve all of the anchor tags
