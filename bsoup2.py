@@ -33,11 +33,13 @@ import urllib.request
 from bs4 import BeautifulSoup
 
 url = input('Enter - ')
-url = 'http://python-data.dr-chuck.net/known_by_Fikret.html'
+# url = 'http://python-data.dr-chuck.net/known_by_Fikret.html'
 
-for i in range(4):
+for i in range(7):
     html = urllib.request.urlopen(url).read()
     soup = BeautifulSoup(html)
     tags = soup('a')
-    html = tags[2].get('href')
-print(html)
+    url = tags[17].get('href')
+lname = re.findall('y_(.+).h',url)
+print(lname)
+# Aimiee
