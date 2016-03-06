@@ -35,28 +35,32 @@
 # Count: 50
 # Sum: 2482
 
-import urllib
-import xml.etree.ElementTree as ET
+url = 'http://python-data.dr-chuck.net/comments_245926.xml'
 
-serviceurl = 'http://python-data.dr-chuck.net/comments_42.xml'
+#while True:
+#    address = input('Enter location: ')
+#    address = ''
+#    if len(address) < 1 : break
+#    url = serviceurl + urllib.parse.urlencode({'sensor':'false', 'address': address})
 
-while True:
-    address = raw_input('Enter location: ')
-    if len(address) < 1 : break
+print('Retrieving', url)
+uh = urllib.request.urlopen(url)
+data = uh.read()
+# print(data.decode()) Bytes -> Unicode
 
-    url = serviceurl + urllib.urlencode({'sensor':'false', 'address': address})
-    print 'Retrieving', url
-    uh = urllib.urlopen(url)
-    data = uh.read()
-    print 'Retrieved',len(data),'characters'
-    print data
-    tree = ET.fromstring(data)
+print('Retrieved',len(data),'characters')
+print(data)
 
+tree = ET.fromstring(data)
 
-    results = tree.findall('result')
-    lat = results[0].find('geometry').find('location').find('lat').text
-    lng = results[0].find('geometry').find('location').find('lng').text
-    location = results[0].find('formatted_address').text
+results = tree.findall('.//count')
+i = 0
+j = 1
+for count in results:
+    i = int(count.text) + i
+    print('Count:',j)
+    print('Sum:',i)
+    j = j + 1
+print("Sum:",i)
 
-    print 'lat',lat,'lng',lng
-    print location
+#2721
