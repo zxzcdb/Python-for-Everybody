@@ -43,6 +43,9 @@ url = 'http://python-data.dr-chuck.net/comments_245926.xml'
 #    if len(address) < 1 : break
 #    url = serviceurl + urllib.parse.urlencode({'sensor':'false', 'address': address})
 
+import urllib.request
+import xml.etree.ElementTree as ET
+
 print('Retrieving', url)
 uh = urllib.request.urlopen(url)
 data = uh.read()
