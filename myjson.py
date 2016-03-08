@@ -46,9 +46,9 @@ while True:
     uh = urllib.request.urlopen(url)
     data = uh.read()
     print('Retrieved', len(data), 'characters.')
-    print(str(data))
+    print(data)
 
-    try: data_parse = json.loads(str(data))
+    try: data_parse = json.loads(data.decode())
     except: data_parse = None
     if 'status' not in data_parse or data_parse['status']!='OK':
         print("=====FAILURE======")
@@ -60,7 +60,7 @@ print('User count:', len(data_parse))
 sum = 0
 i = 0
 for item in data_parse:
-    for i in range(100):
+    for i in range(len(item['comments'])):
         sum += item['comments'][i]['count']
 print(sum)
 
