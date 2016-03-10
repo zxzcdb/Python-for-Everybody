@@ -44,7 +44,10 @@ serviceurl = 'http://maps.googleapis.com/maps/api/geocode/json?'
 
 while True:
     address = input('Enter location: ')
-    if len(address) < 1 : break
+# Univerisity of Michigan
+# National University of Engineering
+
+if len(address) < 1 : break
 
     url = serviceurl + urllib.parse.urlencode({'sensor':'false', 'address': address})
     print('Retrieving', url)
@@ -61,8 +64,8 @@ while True:
 
     print(json.dumps(js, indent=4))
 
-    lat = js["results"][0]["geometry"]["location"]["lat"]
-    lng = js["results"][0]["geometry"]["location"]["lng"]
-    print('lat',lat,'lng',lng)
-    location = js['results'][0]['formatted_address']
+#    lat = js["results"][0]["geometry"]["location"]["lat"]
+#    lng = js["results"][0]["geometry"]["location"]["lng"]
+#    print('lat',lat,'lng',lng)
+    location = js['results']['place_id']
     print(location)
